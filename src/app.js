@@ -1,8 +1,8 @@
 /* eslint-env browser */
 /* global Vue io flexImages tus:true */
 
-const pathToApp = '/' + window.location.pathname.substring(1);
-const appRoot = 'http://localhost:9125';
+const pathToApp = '/apps/lanza-photos'; // + window.location.pathname.substring(1);
+const appRoot = 'http://localhost:9104';
 const fullURL = appRoot + pathToApp;
 var rowHeight = 150;
 

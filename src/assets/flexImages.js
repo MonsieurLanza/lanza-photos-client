@@ -6,7 +6,7 @@
 */
 
 /* eslint-disable */
-var flexImages = (function(){
+export default (function(){
     // "use strict";
     function flexImages(options){
         if (!document.querySelector) return;
@@ -54,7 +54,7 @@ var flexImages = (function(){
 
         var o = { selector: 0, container: '.item', object: 'img', rowHeight: 180, maxRows: 0, truncate: 0 };
         for (var k in options) { if (options.hasOwnProperty(k)) o[k] = options[k]; }
-        var grids = o.selector instanceof 'object' ? [o.selector] : document.querySelectorAll(o.selector);
+        var grids = o.selector instanceof Object ? [o.selector] : document.querySelectorAll(o.selector);
 
         function _makeTempf(currentGrid, currentItems) {
             var grid = currentGrid;
@@ -88,5 +88,3 @@ var flexImages = (function(){
     }
     return flexImages;
 })();
-
-module.exports.flexImages = flexImages;

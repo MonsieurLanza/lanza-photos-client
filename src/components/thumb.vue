@@ -1,7 +1,7 @@
 <template>
-    <li class="photo">
-        <a v-bind:href="photo.src" v-bind:data-big="photo.src">
-            <img v-bind:src="photo.thumbsrc" v-bind:alt="photo.title" data-w="400" data-h="300">
+    <li :class="klass" :data-w="width" :data-h="height">
+        <a :href="src" :data-big="src">
+            <img src="static/logo.png" :data-src="thumbsrc" :alt="photo.title" >
         </a>
     </li>
 </template>
@@ -9,7 +9,16 @@
 <script>
 export default {
   name: 'thumb',
-  props: ['photo']
+  props: ['photo'],
+  computed: {
+    thumbsrc: function () { return `photos/${this.photo.id}/thumb.jpg`; },
+    src: function () { return `photos/${this.photo.id}/raw.jpg`; },
+    width: function () { return this.photo.size.raw.width; },
+    height: function () { return this.photo.size.raw.height; },
+    klass: function () {
+      return `photo${this.height > this.width ? ' vertical' : ''}`;
+    }
+  }
 };
 </script>
 <style>
